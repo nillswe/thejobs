@@ -2,12 +2,16 @@
 
 import Link from 'next/link'
 import Image from 'next/image'
+import { usePathname } from 'next/navigation'
 
+import { merge } from '@/utils'
 import { APP_URL } from '@/config/env-client'
 
 export const Header = () => {
+  const path = usePathname()
+
   return (
-    <header className='w-full flex items-center fixed top-0 justify-center bg-base-300 py-1'>
+    <header className='w-full flex items-center  justify-center py-1'>
       <div className='navbar max-w-screen-xl'>
         <div className='navbar-start'>
           <Link href={APP_URL}>
@@ -22,11 +26,17 @@ export const Header = () => {
         </div>
 
         <ul className='navbar-center  gap-5 '>
-          <Link href='/about' title='About page'>
-            About
+          <Link
+            href='/'
+            title='home'
+            className={merge([path === '/' && 'font-bold border-b-2 border-base-content'])}>
+            Home
           </Link>
 
-          <Link href='/jobs' title='Jobs page' className='font-bold border-b-2 border-primary'>
+          <Link
+            href='/jobs'
+            title='Jobs page'
+            className={merge([path === '/jobs' && 'font-bold border-b-2 border-base-content'])}>
             Jobs
           </Link>
 
