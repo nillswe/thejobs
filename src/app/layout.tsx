@@ -3,7 +3,7 @@ import type { Metadata } from 'next'
 import { Roboto } from 'next/font/google'
 
 import './globals.css'
-import { LayoutWrapper, Providers } from './_components'
+import { Providers } from './_components'
 
 const roboto = Roboto({ subsets: ['latin'], weight: ['400', '500', '700'] })
 
@@ -19,13 +19,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en' suppressHydrationWarning>
-      <body className={`
-        ${roboto.className}
-        antialiased
-      `}>
-        <Providers>
-          <LayoutWrapper>{children}</LayoutWrapper>
-        </Providers>
+      <body
+        className={`
+          ${roboto.className}
+          antialiased
+        `}>
+        <Providers>{children}</Providers>
       </body>
     </html>
   )

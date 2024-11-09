@@ -6,7 +6,7 @@ import { Moon, Sun } from 'lucide-react'
 
 export const ThemeToggle = () => {
   const { setTheme, theme } = useTheme()
-  const isDark = theme === 'defaultDark'
+  const isDark = theme === 'thejobsDark'
 
   return (
     <label className='swap swap-rotate ml-2 mr-2'>
@@ -15,7 +15,7 @@ export const ThemeToggle = () => {
         type='checkbox'
         checked={isDark}
         className='theme-controller'
-        onChange={() => setTheme(isDark ? 'default' : 'defaultDark')}
+        onChange={() => setTheme(isDark ? 'thejobs' : 'thejobsDark')}
       />
       <Sun size={25} className='swap-off  fill-current' />
       <Moon size={25} className='swap-on  fill-current' />

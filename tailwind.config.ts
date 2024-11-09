@@ -19,7 +19,7 @@ const config: Config = {
     themeRoot: ':root', // The element that receives theme color CSS variables
     themes: [
       {
-        default: {
+        thejobs: {
           'primary': '#161a30',
           'primary-focus': '#0f1221',
           'primary-content': '#ffffff',
@@ -52,7 +52,7 @@ const config: Config = {
           '--navbar-padding': '.5rem',
           '--border-btn': '1px',
         },
-        defaultDark: {
+        thejobsDark: {
           'primary': '#ffb3d9',
           'primary-focus': '#ff80bf',
           'primary-content': '#1b1c22',

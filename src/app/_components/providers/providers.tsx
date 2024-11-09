@@ -2,12 +2,16 @@
 
 import { ReactNode } from 'react'
 
-import { ThemeProvider } from '@/app/_hooks/use-theme'
+import { ThemeProvider } from 'next-themes'
 
 type Props = {
   children: ReactNode
 }
 
 export const Providers = ({ children }: Props) => {
-  return <ThemeProvider>{children}</ThemeProvider>
+  return (
+    <ThemeProvider attribute='data-theme' defaultTheme={'thejobs'}>
+      {children}
+    </ThemeProvider>
+  )
 }
