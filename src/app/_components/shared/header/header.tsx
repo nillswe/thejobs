@@ -7,7 +7,7 @@ import { APP_URL } from '@/config/env-client'
 
 export const Header = () => {
   return (
-    <header className='w-full flex items-center  justify-center bg-base-300 py-1'>
+    <header className='w-full flex items-center fixed top-0 justify-center bg-base-300 py-1'>
       <div className='navbar max-w-screen-xl'>
         <div className='navbar-start'>
           <Link href={APP_URL}>
@@ -26,7 +26,7 @@ export const Header = () => {
             About
           </Link>
 
-          <Link href='/jobs' title='Jobs page'>
+          <Link href='/jobs' title='Jobs page' className='font-bold border-b-2 border-primary'>
             Jobs
           </Link>
 

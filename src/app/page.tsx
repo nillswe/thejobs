@@ -1,4 +1,5 @@
-import { Footer, Header, Hero, NewJobs, ThemeToggle, Trusted } from '@/app/_components'
+import { Footer, Header } from '@/app/_components/shared'
+import { Hero, NewJobs, ThemeToggle, Trusted } from '@/app/_components'
 
 export default async function Home() {
   return (
