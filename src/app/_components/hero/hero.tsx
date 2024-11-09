@@ -9,7 +9,7 @@ export const Hero = () => {
     <section
       className={`
         h-[31rem] bg-base-300 flex w-full justify-center items-center
-        bg-[url("/assets/header-texture.png")] bg-center bg-cover
+        bg-[url("/assets/header-texture.svg")] bg-center bg-cover
       `}>
       <div className='text-center flex flex-col items-center justify-center'>
         <header className='max-w-lg'>

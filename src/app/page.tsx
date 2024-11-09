@@ -1,4 +1,4 @@
-import { Footer, Header, Hero, ThemeToggle } from '@/app/_components'
+import { Footer, Header, Hero, ThemeToggle, Trusted } from '@/app/_components'
 
 export default async function Home() {
   return (
@@ -10,6 +10,7 @@ export default async function Home() {
       <div className='flex h-screen w-full flex-col items-center'>
         <Header />
         <Hero />
+        <Trusted />
       </div>
       <Footer />
     </main>
