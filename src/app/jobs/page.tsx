@@ -1,5 +1,5 @@
-import { Container } from '@/app/_components'
-import { BannerJobs } from '@/app/jobs/_components'
+import { Container, JobsList } from '@/app/_components'
+import { BannerJobs, SearchCard } from '@/app/jobs/_components'
 
 export default function Layout() {
   return (
@@ -7,8 +7,22 @@ export default function Layout() {
       <BannerJobs />
 
       <Container>
-        <div>menu</div>
-        Page content
+        <div className='w-full -mt-[76px] mb-10'>
+          <SearchCard />
+        </div>
+        <div className='flex justify-end'>
+          <select className='select select-bordered max-w-xs bg-base-200 rounded-full'>
+            <option disabled selected>
+              Who shot first?
+            </option>
+            <option>Han Solo</option>
+            <option>Greedo</option>
+          </select>
+        </div>
+
+        <div>
+          <JobsList title='Search result' />
+        </div>
       </Container>
     </div>
   )
