@@ -25,9 +25,11 @@ export const Hero = () => {
         <footer className='join max-w-full w-[40rem]'>
           <input
             placeholder='React developer'
-            className='input input-lg input-bordered join-item flex-1'
+            className='input input-lg input-bordered join-item  rounded-2xl flex-1'
           />
-          <button className='btn btn-lg join-item btn-primary'>Find your dream job</button>
+          <button className='btn btn-lg join-item btn-primary rounded-2xl'>
+            Find your dream job
+          </button>
         </footer>
       </div>
     </section>
