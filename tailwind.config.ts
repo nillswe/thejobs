@@ -20,26 +20,22 @@ const config: Config = {
     themes: [
       {
         default: {
-          'primary': '#f9d72f',
-          'primary-focus': '#e9c307',
-          'primary-content': '#18182f',
+          'primary': '#161a30',
+          'primary-focus': '#0f1221',
+          'primary-content': '#ffffff',
 
-          'secondary': '#dfa62a',
-          'secondary-focus': '#be8b1e',
+          'secondary': '#31304d',
+          'secondary-focus': '#2a2942',
           'secondary-content': '#ffffff',
 
-          'accent': '#18182f',
-          'accent-focus': '#111122',
-          'accent-content': '#ffffff',
-
-          'neutral': '#18182f',
-          'neutral-focus': '#111122',
+          'neutral': '#364452',
+          'neutral-focus': '#424c57',
           'neutral-content': '#ffffff',
 
-          'base-100': '#ffffff',
-          'base-200': '#f5f5f5',
-          'base-300': '#e3e3e3',
-          'base-content': '#000000',
+          'base-100': '#f5f5f5',
+          'base-200': '#ffffff',
+          'base-300': '#eae9e9',
+          'base-content': '#161a30',
 
           'info': '#1c92f2',
           'success': '#009485',
@@ -64,10 +60,6 @@ const config: Config = {
           'secondary': '#b9ffb3',
           'secondary-focus': '#8aff80',
           'secondary-content': '#1b1c22',
-
-          'accent': '#ffffb3',
-          'accent-focus': '#ffff80',
-          'accent-content': '#1b1c22',
 
           'neutral': '#22212c',
           'neutral-focus': '#1b1c22',
