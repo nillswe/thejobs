@@ -8,7 +8,7 @@ export const Footer = () => {
     <footer className='flex flex-col '>
       <Container>
         <div className='flex w-full items-center justify-center '>
-          <div>
+          <div className='flex-1'>
             <Image
               width={620}
               height={435}

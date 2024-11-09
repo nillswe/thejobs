@@ -5,5 +5,5 @@ type Props = {
 }
 
 export const Container = ({ children }: Props) => {
-  return <div className='w-full max-w-7xl mx-auto'>{children}</div>
+  return <div className='w-full max-w-5xl mx-auto'>{children}</div>
 }
