@@ -10,18 +10,17 @@ const config: Config = {
   ],
   plugins: [typography, daisyUI],
   daisyui: {
-    // darkTheme: 'defaultDark', // name of one of the included themes for dark mode
-    base: true, // applies background color and foreground color for root element by default
-    styled: true, // include daisyUI colors and design decisions for all components
-    utils: true, // adds responsive and modifier utility classes
-    prefix: '', // prefix for daisyUI classnames (components, modifiers and responsive class names. Not colors)
-    logs: false, // Shows info about daisyUI version and used config in the console when building your CSS
-    themeRoot: ':root', // The element that receives theme color CSS variables
+    base: true,
+    styled: true,
+    utils: true,
+    prefix: '',
+    logs: false,
+    themeRoot: ':root',
     themes: [
       {
         thejobs: {
           'primary': '#161a30',
-          'primary-focus': '#0f1221',
+          'primary-focus': '#111425',
           'primary-content': '#ffffff',
 
           'secondary': '#31304d',
@@ -43,11 +42,11 @@ const config: Config = {
           'error': '#ff5724',
 
           '--rounded-box': '1rem',
-          '--rounded-btn': '.5rem',
+          '--rounded-btn': '.4rem',
           '--rounded-badge': '1.9rem',
 
           '--animation-btn': '.25s',
-          '--animation-input': '.2s',
+          '--animation-input': '.3s',
 
           '--navbar-padding': '.5rem',
           '--border-btn': '1px',
@@ -74,6 +73,16 @@ const config: Config = {
           'success': '#009485',
           'warning': '#ff9900',
           'error': '#ff5724',
+
+          '--rounded-box': '1rem',
+          '--rounded-btn': '.4rem',
+          '--rounded-badge': '1.9rem',
+
+          '--animation-btn': '.25s',
+          '--animation-input': '.3s',
+
+          '--navbar-padding': '.5rem',
+          '--border-btn': '1px',
         },
       },
     ],

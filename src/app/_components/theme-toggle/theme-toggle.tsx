@@ -9,7 +9,7 @@ export const ThemeToggle = () => {
   const isDark = theme === 'thejobsDark'
 
   return (
-    <label className='swap swap-rotate ml-2 mr-2'>
+    <label className='swap swap-rotate'>
       <input
         value='dark'
         type='checkbox'

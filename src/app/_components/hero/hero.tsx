@@ -1,6 +1,6 @@
 export const Hero = () => {
   return (
-    <div className='hero flex-1 bg-base-200'>
+    <div className='hero flex-1'>
       <div className='hero-content text-center'>
         <div className='max-w-md'>
           <h1 className='text-5xl font-bold'>Home page</h1>
