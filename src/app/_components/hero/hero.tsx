@@ -24,7 +24,7 @@ export const Hero = () => {
 
         <footer className='join max-w-full w-[40rem]'>
           <input
-            placeholder='React frontend developer'
+            placeholder='React developer'
             className='input input-lg input-bordered join-item flex-1'
           />
           <button className='btn btn-lg join-item btn-primary'>Find your dream job</button>

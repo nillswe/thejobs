@@ -1,39 +1,65 @@
 import Link from 'next/link'
+import Image from 'next/image'
 
-import { InstagramIcon, XIcon } from '@/app/_components/icons'
+import { Container, InstagramIcon, XIcon } from '@/app/_components'
 
 export const Footer = () => {
   return (
-    <footer className='footer footer-center gap-6 rounded bg-base-100 p-8 text-base-content'>
-      <nav className='grid grid-flow-col gap-4'>
-        <Link href='/privacy-policy' className='link-hover link'>
-          About us
-        </Link>
-        <Link href='/contact' className='link-hover link'>
-          Contact
-        </Link>
-        <Link href='/privacy-policy' className='link-hover link'>
-          Privacy policy
-        </Link>
-      </nav>
-      <nav>
-        <div className='grid grid-flow-col gap-4'>
-          <a>
-            <XIcon width={24} />
-          </a>
-          <a>
-            <InstagramIcon width={24} />
-          </a>
+    <footer className='flex flex-col '>
+      <Container>
+        <div className='flex w-full items-center justify-center '>
+          <div>
+            <Image
+              width={620}
+              height={435}
+              alt='Illustration'
+              src='/assets/illustration-footer.svg'
+            />
+          </div>
+          <div className='flex flex-col gap-5 justify-center items-start'>
+            <h1 className='text-4xl font-bold'>Live anywhere, work everywhere.</h1>
+            <Link href='/jobs' className='btn btn-primary btn-lg btn-wide max-w-full'>
+              Find your dream job
+            </Link>
+          </div>
         </div>
-      </nav>
-      <aside>
-        <p>
-          Copyright © {new Date().getFullYear()} - All right reserved by{' '}
-          <Link target='_blank' href='https://nullref.software'>
-            Nullref Software LTDA
+      </Container>
+      <Container>
+        <div className='footer p-10'>
+          <aside>
+            <Image alt='Logo' width={100} height={100} src='/logo/logo-small.svg' />
+          </aside>
+          <nav>
+            <h6 className='font-bold text-lg text-primary'>Services</h6>
+            <a className='link link-hover'>Branding</a>
+            <a className='link link-hover'>Design</a>
+            <a className='link link-hover'>Marketing</a>
+            <a className='link link-hover'>Advertisement</a>
+          </nav>
+          <nav>
+            <h6 className='font-bold text-lg text-primary'>Company</h6>
+            <a className='link link-hover'>About us</a>
+            <a className='link link-hover'>Contact</a>
+            <a className='link link-hover'>Jobs</a>
+            <a className='link link-hover'>Press kit</a>
+          </nav>
+          <nav>
+            <h6 className='font-bold text-lg text-primary'>Legal</h6>
+            <a className='link link-hover'>Terms of use</a>
+            <a className='link link-hover'>Privacy policy</a>
+            <a className='link link-hover'>Cookie policy</a>
+          </nav>
+        </div>
+        <div className='divider' />
+        <div className='flex items-center justify-start gap-3 pb-5'>
+          <Link href='#' className=' btn btn-square btn-sm btn-ghost'>
+            <XIcon />
           </Link>
-        </p>
-      </aside>
+          <Link href='#' className=' btn btn-square btn-sm btn-ghost'>
+            <InstagramIcon />
+          </Link>
+        </div>
+      </Container>
     </footer>
   )
 }
