@@ -22,7 +22,7 @@ export default function Layout() {
         </div>
 
         <div>
-          <JobsList title='Search result' />
+          <JobsList title='Search result' jobs={[]} />
         </div>
       </Container>
     </div>
