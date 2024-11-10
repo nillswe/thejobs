@@ -1,16 +1,15 @@
-import { UserModel } from '@/types/models/user.model'
+import { Decimal } from '@prisma/client/runtime/library'
 
-export interface JobsModel {
-  id: number
-  title: string | null
-  company: string | null
-  description: string | null
-  duration: string | null
-  seniority: string | null
-  workplace: string | null
-  salaryMin: number | null
-  salaryMax: number | null
-  acceptedCountry: string | null
-  createdAt: string
-  owner: UserModel
+export interface JobModel {
+  id: bigint
+  title: string
+  company: string
+  description: string
+  duration: 'full_time' | 'part_time' | 'contract'
+  seniority: string
+  workplace: 'hybrid' | 'on_site' | 'remote'
+  salaryMin: Decimal
+  salaryMax: Decimal | null
+  acceptedCountry: 'united_states' | 'brazil' | 'argentina'
+  createdAt: Date
 }

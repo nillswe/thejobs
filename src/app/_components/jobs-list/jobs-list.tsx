@@ -1,10 +1,9 @@
-import { jobs } from '@prisma/client'
-
+import { JobModel } from '@/types/models'
 import { JobCard } from '@/app/_components/shared'
 
 type Props = {
   title?: string
-  jobs: jobs[]
+  jobs: JobModel[]
 }
 
 export const JobsList = ({ title, jobs }: Props) => {

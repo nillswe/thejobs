@@ -1,5 +1,6 @@
 'use server'
 
+import { JobModel } from '@/types/models'
 import { prisma } from '@/libs/prisma/config'
 
 export const getRecentJobs = async () => {
@@ -16,7 +17,6 @@ export const getRecentJobs = async () => {
       seniority: true,
       title: true,
       userId: true,
-      owner: true,
       workplace: true,
     },
     orderBy: {
@@ -25,5 +25,5 @@ export const getRecentJobs = async () => {
     take: 5,
   })
 
-  return jobs
+  return jobs as JobModel[]
 }

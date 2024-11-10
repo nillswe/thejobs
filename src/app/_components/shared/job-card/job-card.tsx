@@ -1,11 +1,14 @@
 import Link from 'next/link'
 import Image from 'next/image'
 
-import { jobs } from '@prisma/client'
 import { Clock, House, Pin } from 'lucide-react'
 
+import { JobModel } from '@/types/models'
+import { timeElapsed } from '@/utils/date'
+import { acceptedCountry, duration, workplace } from '@/constants/filters'
+
 type Props = {
-  job: jobs
+  job: JobModel
 }
 
 export const JobCard = ({ job }: Props) => {
@@ -17,9 +20,9 @@ export const JobCard = ({ job }: Props) => {
         hover:shadow-md hover:cursor-pointer
       `}>
       <div className='flex items-center justify-start mb-2 ml-2 gap-3'>
-        <span className='text-sm text-neutral/80'>{job.createdAt.toLocaleString()}</span>
+        <span className='text-sm text-neutral/80'>{timeElapsed(job.createdAt)}</span>
         <span className='text-xs badge  bg-green-200 text-green-900 '>
-          {job.workplace} - {job.acceptedCountry}
+          {workplace[job.workplace]} - {acceptedCountry[job.acceptedCountry]}
         </span>
       </div>
 
@@ -38,7 +41,7 @@ export const JobCard = ({ job }: Props) => {
 
         <div className='flex flex-col gap-3 justify-center items-end'>
           <span className='text-xl font-bold flex gap-1'>
-            {job.salaryMin && <span>{job.salaryMin?.toNumber() / 1000}K</span>}
+            <span>{job.salaryMin?.toNumber() / 1000}K</span>
             {job.salaryMax && (
               <>
                 <span>-</span>
@@ -49,17 +52,17 @@ export const JobCard = ({ job }: Props) => {
           <div className='flex  gap-3 font-medium'>
             <div className='flex gap-1 items-center text-neutral/80'>
               <House size={16} />
-              <span className='text-sm'>{job.workplace}</span>
+              <span className='text-sm'>{workplace[job.workplace]}</span>
             </div>
 
             <div className='flex gap-1 items-center text-neutral/80'>
               <Pin size={16} />
-              <span className='text-sm'>{job.acceptedCountry}</span>
+              <span className='text-sm'>{acceptedCountry[job.acceptedCountry]}</span>
             </div>
 
             <div className='flex gap-1 items-center text-neutral/80'>
               <Clock size={16} />
-              <span className='text-sm'>{job.duration}</span>
+              <span className='text-sm'>{duration[job.duration]}</span>
             </div>
           </div>
         </div>
