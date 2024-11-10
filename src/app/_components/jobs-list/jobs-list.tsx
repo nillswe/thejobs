@@ -10,7 +10,11 @@ type Props = {
 
 export const JobsList = ({ title, jobs }: Props) => {
   return (
-    <section className='flex flex-col'>
+    <section
+      className={`
+        flex flex-col px-5
+        md:px-0
+      `}>
       <h1 className='text-2xl font-bold mb-5'>{title}</h1>
 
       {jobs.length === 0 && <EmptyResult />}

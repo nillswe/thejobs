@@ -35,7 +35,7 @@ export const JobCard = ({ job }: Props) => {
 
       <div
         className={merge([
-          'flex rounded-2xl items-center p-4 bg-blue-100/50 gap-3',
+          'flex flex-col md:flex-row rounded-2xl items-center p-4 bg-blue-100/50 gap-3',
           job.workplace === 'remote' && 'bg-green-100/50 ',
           job.workplace === 'hybrid' && 'bg-blue-100/50 ',
           job.workplace === 'on-site' && 'bg-red-100/50 ',
@@ -49,11 +49,21 @@ export const JobCard = ({ job }: Props) => {
         />
         <div className='flex flex-1 flex-col justify-center'>
           <h1 className='font-medium'>{job.title}</h1>
-          <h2 className='font-medium'>{job.company}</h2>
+          <h2
+            className={`
+              font-medium text-center
+              md:text-left
+            `}>
+            {job.company}
+          </h2>
         </div>
 
-        <div className='flex flex-col gap-3 justify-center items-end'>
-          <span className='text-xl font-bold flex gap-1'>
+        <div
+          className={`
+            flex flex-col gap-3 justify-center items-center
+            md:items-end
+          `}>
+          <span className={`text-xl font-bold flex gap-1`}>
             <span>{job.salaryMin?.toNumber() / 1000}K</span>
             {job.salaryMax && (
               <>

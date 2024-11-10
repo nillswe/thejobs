@@ -11,11 +11,18 @@ export const Hero = () => {
     <section
       className={`
         h-[31rem] bg-base-300 flex w-full justify-center items-center
-        bg-[url("/assets/header-texture.svg")] bg-center bg-cover
+        bg-[url("/assets/header-texture.svg")] bg-center bg-cover px-5
+        md:px-0
       `}>
       <div className='text-center flex flex-col items-center justify-center'>
-        <header className='max-w-lg'>
-          <h1 className={merge(['text-[7.6rem] font-bold tracking-[-0.9rem]', dmSans.className])}>
+        <header className='max-w-lg '>
+          <h1
+            className={merge([
+              dmSans.className,
+              'text-[7.6rem] font-bold ',
+              'md:text-[7.6rem] md:tracking-[-0.9rem]',
+              'text-[5.6rem] tracking-[-0.7rem]',
+            ])}>
             thejobs
           </h1>
           <p className='mb-16'>
@@ -24,13 +31,28 @@ export const Hero = () => {
           </p>
         </header>
 
-        <Form action='/jobs' className='join max-w-full w-[40rem]'>
+        <Form
+          action='/jobs'
+          className={`
+            join w-full
+            md:w-[40rem]
+          `}>
           <input
             name='query'
             placeholder='React developer'
-            className='input input-lg input-bordered join-item  rounded-2xl flex-1'
+            className={`
+              input
+              md:input-lg
+              input-bordered join-item rounded-2xl flex-1
+            `}
           />
-          <button type='submit' className='btn btn-lg join-item btn-primary rounded-2xl'>
+          <button
+            type='submit'
+            className={`
+              btn
+              md:btn-lg
+              join-item btn-primary rounded-2xl
+            `}>
             Find your dream job
           </button>
         </Form>

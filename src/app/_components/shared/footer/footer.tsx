@@ -7,11 +7,30 @@ import { Container } from '../container'
 
 export const Footer = () => {
   return (
-    <footer className='flex flex-col pt-10 '>
+    <footer
+      className={`
+        flex flex-col pt-10 px-5
+        md:px-0
+      `}>
       <Container>
-        <div className='flex w-full items-center justify-center gap-5 '>
-          <div className='flex flex-col gap-5 justify-center items-start'>
-            <h1 className='text-4xl font-bold'>Live anywhere, work everywhere.</h1>
+        <div
+          className={`
+            flex w-full flex-col-reverse
+            md:flex-row
+            items-center justify-center gap-5
+          `}>
+          <div
+            className={`
+              flex flex-col gap-5 justify-center items-center
+              md:items-start
+            `}>
+            <h1
+              className={`
+                text-4xl font-bold text-center
+                md:text-left
+              `}>
+              Live anywhere, work everywhere.
+            </h1>
             <Link href='/jobs' className='btn btn-primary rounded-full  btn-wide max-w-full'>
               Find your dream job
             </Link>
@@ -27,18 +46,22 @@ export const Footer = () => {
         </div>
       </Container>
       <Container>
-        <div className='footer p-10'>
+        <div
+          className={`
+            footer p-10 grid-cols-2
+            md:grid-cols-4
+          `}>
           <aside>
             <Image alt='Logo' width={100} height={100} src='/logo/logo-small.svg' />
           </aside>
-          <nav>
+          <nav className=''>
             <h6 className='font-bold text-lg text-primary'>Services</h6>
             <a className='link link-hover'>Branding</a>
             <a className='link link-hover'>Design</a>
             <a className='link link-hover'>Marketing</a>
             <a className='link link-hover'>Advertisement</a>
           </nav>
-          <nav>
+          <nav className=''>
             <h6 className='font-bold text-lg text-primary'>Company</h6>
             <a className='link link-hover'>About us</a>
             <a className='link link-hover'>Contact</a>

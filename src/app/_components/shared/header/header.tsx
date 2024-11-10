@@ -25,7 +25,11 @@ export const Header = () => {
           </Link>
         </div>
 
-        <ul className='navbar-center  gap-5 '>
+        <ul
+          className={`
+            navbar-center gap-5 hidden
+            md:flex
+          `}>
           <Link
             href='/'
             title='home'
@@ -49,7 +53,11 @@ export const Header = () => {
           </Link>
         </ul>
 
-        <ul className='navbar-end gap-3'>
+        <ul
+          className={`
+            navbar-end gap-3 hidden
+            md:flex
+          `}>
           <Link href='/auth' className='btn btn-sm btn-outline border-2 px-8'>
             Sign in
           </Link>
