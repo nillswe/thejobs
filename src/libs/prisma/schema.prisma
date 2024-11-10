@@ -8,11 +8,44 @@ datasource db {
   directUrl = env("POSTGRES_URL_NON_POOLING")
 }
 
-model users {
-  id        Int       @id @default(autoincrement())
-  uid       String    @unique(map: "users_uid_unique")
-  name      String?
-  email     String    @unique(map: "users_email_unique")
-  createdAt DateTime  @default(now()) @db.Date
-  updatedAt DateTime? @db.Date
+/// This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
+model jobs {
+  id              BigInt            @id @default(autoincrement())
+  title           String?
+  company         String?
+  description     String?
+  duration        type?
+  seniority       seniority?
+  workplace       workplace?
+  salaryMin       Decimal?          @db.Decimal
+  salaryMax       Decimal?          @db.Decimal
+  acceptedCountry accepted_country?
+  created_at      DateTime          @default(now()) @db.Timestamptz(6)
+}
+
+enum accepted_country {
+  united_states @map("united-states")
+  brazil
+  argentina
+
+  @@map("accepted-country")
+}
+
+enum seniority {
+  entry_level @map("entry-level")
+  mid_level   @map("mid-level")
+  senior
+  manager
+}
+
+enum type {
+  full_time @map("full-time")
+  part_time @map("part-time")
+  contract
+}
+
+enum workplace {
+  remote
+  hybrid
+  on_site @map("on-site")
 }
