@@ -5,6 +5,7 @@ import { useSearchParams } from 'next/navigation'
 
 import { DollarSign, Globe, Home, Layers, Search, Trophy } from 'lucide-react'
 
+import { FilterRange } from '../filter-range'
 import { FilterCheckbox } from '../filter-checkbox'
 
 export const SearchCard = () => {
@@ -79,18 +80,7 @@ export const SearchCard = () => {
             ]}
           />
 
-          <FilterCheckbox
-            Icon={DollarSign}
-            label='Salary'
-            name='salary'
-            options={[
-              { label: '60k', value: '60' },
-              { label: '60k - 80k', value: '60-120' },
-              { label: '80k - 100k', value: '80-100' },
-              { label: '100k - 120k', value: '100-120' },
-              { label: '120k +', value: '120+' },
-            ]}
-          />
+          <FilterRange Icon={DollarSign} label='Salary' name='salary' />
         </div>
       </div>
     </div>

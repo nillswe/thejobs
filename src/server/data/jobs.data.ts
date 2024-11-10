@@ -39,6 +39,7 @@ export const getJobsBySearchParams = async (params: JobsResultParams) => {
   const seniority = parseToArray(params.seniority)
   const country = parseToArray(params.country)
   const workplace = parseToArray(params.workplace)
+  const salary = params.salary ? Number(params.salary) * 1000 : null
 
   const jobTypeQuery = jobType
     ? Prisma.sql` AND "duration" IN (${Prisma.join(jobType)})`
@@ -56,6 +57,10 @@ export const getJobsBySearchParams = async (params: JobsResultParams) => {
     ? Prisma.sql` AND "workplace" IN (${Prisma.join(workplace)})`
     : Prisma.empty
 
+  const salaryQuery = salary
+    ? Prisma.sql` AND "salaryMin" >= ${salary} OR "salaryMax" >= ${salary} `
+    : Prisma.empty
+
   const jobs = await prisma.$queryRaw<JobModel[]>`
     SELECT id, title, company, description, duration, seniority, workplace, "salaryMin", "salaryMax", "acceptedCountry", "createdAt"
     FROM jobs
@@ -64,6 +69,7 @@ export const getJobsBySearchParams = async (params: JobsResultParams) => {
     ${seniorityQuery}
     ${countryQuery}
     ${workplaceQuery}
+    ${salaryQuery}
   `
 
   return jobs
