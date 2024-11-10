@@ -11,10 +11,11 @@ export default async function Layout({ searchParams }: Props) {
   const searchQuery = await searchParams
 
   const jobsResult = await getJobsResult(searchQuery)
+  const keyword = (searchQuery?.query as string)?.split(' ')[0] ?? ''
 
   return (
     <div className='w-full flex flex-col'>
-      <BannerJobs />
+      <BannerJobs keyword={keyword} />
 
       <Container>
         <div className='w-full -mt-[76px] mb-10'>
