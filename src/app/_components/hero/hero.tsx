@@ -1,5 +1,6 @@
 import Form from 'next/form'
 
+import { Search } from 'lucide-react'
 import { DM_Sans } from 'next/font/google'
 
 import { merge } from '@/utils'
@@ -53,7 +54,16 @@ export const Hero = () => {
               md:btn-lg
               join-item btn-primary rounded-2xl
             `}>
-            Find your dream job
+            <span
+              className={`
+                hidden
+                md:block
+              `}>
+              Find your dream job
+            </span>
+            <span className='md:hidden'>
+              <Search size={20} />
+            </span>
           </button>
         </Form>
       </div>
