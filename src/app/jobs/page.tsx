@@ -34,7 +34,7 @@ export default async function Layout({ searchParams }: Props) {
         </div>
 
         <div>
-          <JobsList title='Search result' jobs={jobsResult} />
+          <JobsList title={`Search result (${jobsResult.length})`} jobs={jobsResult} />
         </div>
       </Container>
     </div>

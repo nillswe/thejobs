@@ -31,31 +31,12 @@ export const getRecentJobs = async () => {
 type JobsResultParams = Record<string, string | string[]>
 
 export const getJobsBySearchParams = async (params: JobsResultParams) => {
-  const jobs = await prisma.jobs.findMany({
-    select: {
-      id: true,
-      acceptedCountry: true,
-      company: true,
-      createdAt: true,
-      description: true,
-      duration: true,
-      salaryMax: true,
-      salaryMin: true,
-      seniority: true,
-      title: true,
-      userId: true,
-      workplace: true,
-    },
-    orderBy: {
-      createdAt: 'desc',
-    },
-    where: {
-      title: {
-        contains: params.query as string,
-      },
-    },
-    take: 5,
-  })
+  const query = params.query
 
-  return jobs as JobModel[]
+  const jobs = await prisma.$queryRaw<JobModel[]>`
+    SELECT id, title, company, description, duration, seniority, workplace, "salaryMin", "salaryMax", "acceptedCountry", "createdAt"
+    FROM jobs
+    WHERE LOWER(title) LIKE LOWER('%'|| ${query} || '%');
+  `
+  return jobs
 }
