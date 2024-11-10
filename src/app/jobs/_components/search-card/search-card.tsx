@@ -28,7 +28,7 @@ export const SearchCard = () => {
             </div>
           </label>
         </Form>
-        <div className='flex flex-1 gap-2'>
+        <div className='flex flex-1 gap-2 flex-wrap'>
           <FilterCheckbox
             label='Job Type'
             name='type'

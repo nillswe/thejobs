@@ -21,6 +21,8 @@ export const FilterCheckbox = ({ label, name, Icon, options }: Props) => {
   const pathname = usePathname()
   const router = useRouter()
 
+  const activeFilters = searchParams.getAll(name)
+
   const handleAddFilter = (event: ChangeEvent<HTMLInputElement>) => {
     const params = new URLSearchParams(searchParams)
 
@@ -30,7 +32,7 @@ export const FilterCheckbox = ({ label, name, Icon, options }: Props) => {
       params.delete(event.target.name, event.target.value)
     }
 
-    router.replace(`${pathname}?${params.toString()}`)
+    router.replace(`${pathname}?${params.toString()}`, { scroll: false })
   }
 
   return (
@@ -38,9 +40,14 @@ export const FilterCheckbox = ({ label, name, Icon, options }: Props) => {
       <div
         tabIndex={0}
         role='button'
-        className={`btn btn-sm m-1 rounded-full border border-base-content/20 text-base-content/70`}>
+        className={`
+          btn btn-sm m-1 rounded-full border border-base-content/20 text-base-content/70 flex-nowrap
+        `}>
         <Icon size={18} />
         <span>{label}</span>
+        {activeFilters.length > 0 && (
+          <span className='badge badge-primary'>({activeFilters.length})</span>
+        )}
         <ChevronDown size={18} />
       </div>
       <ul
@@ -54,6 +61,7 @@ export const FilterCheckbox = ({ label, name, Icon, options }: Props) => {
                 type='checkbox'
                 value={option.value}
                 className={`checkbox`}
+                checked={activeFilters.includes(option.value)}
                 onChange={event => handleAddFilter(event)}
               />
               <span>{option.label}</span>
