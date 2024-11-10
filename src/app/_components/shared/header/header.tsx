@@ -25,11 +25,7 @@ export const Header = () => {
           </Link>
         </div>
 
-        <ul
-          className={`
-            navbar-center gap-5 hidden
-            md:flex
-          `}>
+        <ul className={`navbar-center gap-5`}>
           <Link
             href='/'
             title='home'
