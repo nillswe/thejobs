@@ -1,6 +1,6 @@
-import Image from 'next/image'
+import { DollarSign, Globe, Home, Layers, Search, Trophy } from 'lucide-react'
 
-import { Clock, House, Pin } from 'lucide-react'
+import { FilterCheckbox } from '../filter-checkbox'
 
 export const SearchCard = () => {
   return (
@@ -9,42 +9,77 @@ export const SearchCard = () => {
         bg-base-200 flex flex-col rounded-3xl p-4
         hover:shadow-md hover:cursor-pointer
       `}>
-      <div className='flex items-center justify-start mb-2 ml-2 gap-3'>
-        <span className='text-sm text-neutral/80'>3 minutes ago</span>
-        <span className='text-xs badge  bg-green-200 text-green-900 '>Remote - world wide</span>
-      </div>
-
-      <div className='flex rounded-2xl items-center p-4 bg-green-100/50 gap-3'>
-        <Image
-          width={50}
-          height={50}
-          alt='Company'
-          src='/temp/company.png'
-          className={`rounded-full border-2 border-base-200 object-cover h-fit aspect-square`}
-        />
-        <div className='flex flex-1 flex-col justify-center'>
-          <h1 className='font-medium'>Product Marketing Manager</h1>
-          <h2 className='font-medium'>Trify</h2>
+      <div className='flex flex-col rounded-2xl p-4 bg-blue-100/20 gap-3'>
+        <div className='flex flex-1'>
+          <label
+            className={`
+              input input-bordered items-center flex-1 flex rounded-full pr-2 gap-2 bg-base-200
+            `}>
+            <input type='search' className='grow' placeholder='Search by job title' />
+            <div
+              className={`
+                bg-primary rounded-full flex justify-center items-center p-2 text-base-200
+              `}>
+              <Search size={18} />
+            </div>
+          </label>
         </div>
+        <div className='flex flex-1 gap-2'>
+          <FilterCheckbox
+            label='Job Type'
+            name='job-title'
+            Icon={Layers}
+            options={[
+              { label: 'Full-time', value: 'full-time' },
+              { label: 'Part-time', value: 'part-time' },
+              { label: 'Contract', value: 'contract' },
+            ]}
+          />
+          <FilterCheckbox
+            Icon={Trophy}
+            name='seniority'
+            label='Seniority'
+            options={[
+              { label: 'Entry-level', value: 'entry-level' },
+              { label: 'Mid-level', value: 'mid-level' },
+              { label: 'Senior', value: 'senior' },
+              { label: 'Manager', value: 'manager' },
+            ]}
+          />
 
-        <div className='flex flex-col gap-3 justify-center items-end'>
-          <span className='text-xl font-bold'>110k - 150k</span>
-          <div className='flex  gap-3 font-medium'>
-            <div className='flex gap-1 items-center text-neutral/80'>
-              <House size={16} />
-              <span className='text-sm'>Remote</span>
-            </div>
+          <FilterCheckbox
+            Icon={Globe}
+            name='country'
+            label='Country'
+            options={[
+              { label: 'United States', value: 'united-states' },
+              { label: 'Brazil', value: 'brazil' },
+              { label: 'Argentina', value: 'argentina' },
+            ]}
+          />
+          <FilterCheckbox
+            Icon={Home}
+            label='Workplace'
+            name='workplace'
+            options={[
+              { label: 'Remote', value: 'remote' },
+              { label: 'Hybrid', value: 'hybrid' },
+              { label: 'On-site', value: 'on-site' },
+            ]}
+          />
 
-            <div className='flex gap-1 items-center text-neutral/80'>
-              <Pin size={16} />
-              <span className='text-sm'>World wide</span>
-            </div>
-
-            <div className='flex gap-1 items-center text-neutral/80'>
-              <Clock size={16} />
-              <span className='text-sm'>Full-time</span>
-            </div>
-          </div>
+          <FilterCheckbox
+            Icon={DollarSign}
+            label='Salary'
+            name='salary'
+            options={[
+              { label: '60k', value: '60' },
+              { label: '60k - 80k', value: '60-120' },
+              { label: '80k - 100k', value: '80-100' },
+              { label: '100k - 120k', value: '100-120' },
+              { label: '120k +', value: '120+' },
+            ]}
+          />
         </div>
       </div>
     </div>

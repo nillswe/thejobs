@@ -13,10 +13,11 @@ export default function Layout() {
         <div className='flex justify-end'>
           <select className='select select-bordered max-w-xs bg-base-200 rounded-full'>
             <option disabled selected>
-              Who shot first?
+              Sort by
             </option>
-            <option>Han Solo</option>
-            <option>Greedo</option>
+            <option>Most recent</option>
+            <option>Pay (high to low)</option>
+            <option>Pay (low to high)</option>
           </select>
         </div>
 
