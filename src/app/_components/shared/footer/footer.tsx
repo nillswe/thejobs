@@ -12,7 +12,7 @@ export const Footer = () => {
         <div className='flex w-full items-center justify-center gap-5 '>
           <div className='flex flex-col gap-5 justify-center items-start'>
             <h1 className='text-4xl font-bold'>Live anywhere, work everywhere.</h1>
-            <Link href='/jobs' className='btn btn-primary rounded-full btn-lg btn-wide max-w-full'>
+            <Link href='/jobs' className='btn btn-primary rounded-full  btn-wide max-w-full'>
               Find your dream job
             </Link>
           </div>

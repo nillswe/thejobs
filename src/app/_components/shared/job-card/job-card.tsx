@@ -27,7 +27,7 @@ export const JobCard = ({ job }: Props) => {
             'text-xs badge',
             job.workplace === 'remote' && 'bg-green-200 text-green-900',
             job.workplace === 'hybrid' && 'bg-blue-200 text-blue-900',
-            job.workplace === 'on_site' && 'bg-red-200 text-red-900',
+            job.workplace === 'on-site' && 'bg-red-200 text-red-900',
           ])}>
           {workplace[job.workplace]} - {acceptedCountry[job.acceptedCountry]}
         </span>
@@ -38,7 +38,7 @@ export const JobCard = ({ job }: Props) => {
           'flex rounded-2xl items-center p-4 bg-blue-100/50 gap-3',
           job.workplace === 'remote' && 'bg-green-100/50 ',
           job.workplace === 'hybrid' && 'bg-blue-100/50 ',
-          job.workplace === 'on_site' && 'bg-red-100/50 ',
+          job.workplace === 'on-site' && 'bg-red-100/50 ',
         ])}>
         <Image
           width={50}

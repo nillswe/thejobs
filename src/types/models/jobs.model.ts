@@ -7,9 +7,9 @@ export interface JobModel {
   description: string
   duration: 'full-time' | 'part-time' | 'contract'
   seniority: string
-  workplace: 'hybrid' | 'on_site' | 'remote'
+  workplace: 'hybrid' | 'on-site' | 'remote'
   salaryMin: Decimal
   salaryMax: Decimal | null
-  acceptedCountry: 'united_states' | 'brazil' | 'argentina'
+  acceptedCountry: 'united-states' | 'brazil' | 'argentina'
   createdAt: Date
 }
