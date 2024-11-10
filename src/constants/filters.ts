@@ -20,5 +20,5 @@ export const acceptedCountry = {
 export const workplace = {
   remote: 'Remote',
   hybrid: 'Hybrid',
-  on_site: 'On_site',
+  on_site: 'On site',
 }

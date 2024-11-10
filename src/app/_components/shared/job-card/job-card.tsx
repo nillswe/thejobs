@@ -3,6 +3,7 @@ import Image from 'next/image'
 
 import { Clock, House, Pin } from 'lucide-react'
 
+import { merge } from '@/utils'
 import { JobModel } from '@/types/models'
 import { timeElapsed } from '@/utils/date'
 import { acceptedCountry, duration, workplace } from '@/constants/filters'
@@ -21,12 +22,24 @@ export const JobCard = ({ job }: Props) => {
       `}>
       <div className='flex items-center justify-start mb-2 ml-2 gap-3'>
         <span className='text-sm text-neutral/80'>{timeElapsed(job.createdAt)}</span>
-        <span className='text-xs badge  bg-green-200 text-green-900 '>
+        <span
+          className={merge([
+            'text-xs badge',
+            job.workplace === 'remote' && 'bg-green-200 text-green-900',
+            job.workplace === 'hybrid' && 'bg-blue-200 text-blue-900',
+            job.workplace === 'on_site' && 'bg-red-200 text-red-900',
+          ])}>
           {workplace[job.workplace]} - {acceptedCountry[job.acceptedCountry]}
         </span>
       </div>
 
-      <div className='flex rounded-2xl items-center p-4 bg-blue-100/50 gap-3'>
+      <div
+        className={merge([
+          'flex rounded-2xl items-center p-4 bg-blue-100/50 gap-3',
+          job.workplace === 'remote' && 'bg-green-100/50 ',
+          job.workplace === 'hybrid' && 'bg-blue-100/50 ',
+          job.workplace === 'on_site' && 'bg-red-100/50 ',
+        ])}>
         <Image
           width={50}
           height={50}
