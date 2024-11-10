@@ -18,10 +18,19 @@ export default async function Layout({ searchParams }: Props) {
       <BannerJobs keyword={keyword} />
 
       <Container>
-        <div className='w-full -mt-[76px] mb-10'>
+        <div
+          className={`
+            w-full -mt-[76px] mb-10 px-5
+            md:px-0
+          `}>
           <SearchCard />
         </div>
-        <div className='flex justify-end'>
+
+        <div
+          className={`
+            flex justify-end px-5
+            md:px-0
+          `}>
           <select
             className='select select-bordered max-w-xs bg-base-200 rounded-full'
             defaultValue={0}>
@@ -32,9 +41,7 @@ export default async function Layout({ searchParams }: Props) {
           </select>
         </div>
 
-        <div>
-          <JobsList title={`Search result (${jobsResult.length})`} jobs={jobsResult} />
-        </div>
+        <JobsList title={`Search result (${jobsResult.length})`} jobs={jobsResult} />
       </Container>
     </div>
   )

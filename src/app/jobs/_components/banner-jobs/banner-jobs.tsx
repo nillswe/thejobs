@@ -10,9 +10,15 @@ export const BannerJobs = ({ keyword }: Props) => {
         h-[25rem] bg-base-300 flex w-full justify-center items-center
         bg-[url("/assets/header-texture.svg")] bg-center bg-cover
       `}>
-      <div className='text-center flex flex-col items-center justify-center'>
+      <div
+        className={`
+          text-center flex flex-col items-center justify-center px-5
+          md:px-0
+        `}>
         <header className='w-full'>
-          <h1 className={merge(['text-[5rem] font-bold'])}>Remote {keyword} jobs</h1>
+          <h1 className={merge(['text-[2.8rem] md:text-[5rem] font-bold'])}>
+            Remote {keyword} jobs
+          </h1>
           <p className='mb-16'>
             Find your next career at one of the best remote companies in the world 🌎
           </p>

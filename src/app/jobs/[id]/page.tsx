@@ -37,7 +37,12 @@ export default async function Layout({ params }: Props) {
           </div>
 
           <article className='mt-10'>
-            <header className='flex justify-between'>
+            <header
+              className={`
+                flex flex-col
+                md:flex-row
+                justify-between
+              `}>
               <div className='flex flex-col items-start'>
                 <h1 className='text-xl font-bold'>{job?.title}</h1>
                 <h2 className='font-medium'>{job?.company}</h2>
