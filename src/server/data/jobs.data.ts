@@ -3,6 +3,7 @@
 import { Prisma } from '@prisma/client'
 
 import { JobModel } from '@/types/models'
+import { parseToArray } from '@/utils/array'
 import { prisma } from '@/libs/prisma/config'
 
 export const getRecentJobs = async () => {
@@ -34,10 +35,15 @@ type JobsResultParams = Record<string, string | string[]>
 
 export const getJobsBySearchParams = async (params: JobsResultParams) => {
   const query = params.query
-  const jobType = Array.isArray(params.type) ? params.type : params.type ? [params.type] : null
+  const jobType = parseToArray(params.type)
+  const seniority = parseToArray(params.seniority)
 
   const jobTypeQuery = jobType
     ? Prisma.sql` AND "duration" IN (${Prisma.join(jobType)})`
+    : Prisma.empty
+
+  const seniorityQuery = seniority
+    ? Prisma.sql` AND "seniority" IN (${Prisma.join(seniority)})`
     : Prisma.empty
 
   const jobs = await prisma.$queryRaw<JobModel[]>`
@@ -45,6 +51,7 @@ export const getJobsBySearchParams = async (params: JobsResultParams) => {
     FROM jobs
     WHERE LOWER(title) LIKE LOWER('%'|| ${query} || '%') 
     ${jobTypeQuery}
+    ${seniorityQuery}
   `
 
   return jobs
