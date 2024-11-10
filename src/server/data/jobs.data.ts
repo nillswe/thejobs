@@ -1,5 +1,7 @@
 'use server'
 
+import { Prisma } from '@prisma/client'
+
 import { JobModel } from '@/types/models'
 import { prisma } from '@/libs/prisma/config'
 
@@ -32,11 +34,16 @@ type JobsResultParams = Record<string, string | string[]>
 
 export const getJobsBySearchParams = async (params: JobsResultParams) => {
   const query = params.query
+  const jobType = params.type as string[]
 
-  const jobs = await prisma.$queryRaw<JobModel[]>`
+  const types = jobType.map(type => Prisma.sql`${type}::text`)
+
+  const jobs = await prisma.$queryRaw<JobModel[]>(Prisma.sql`
     SELECT id, title, company, description, duration, seniority, workplace, "salaryMin", "salaryMax", "acceptedCountry", "createdAt"
     FROM jobs
-    WHERE LOWER(title) LIKE LOWER('%'|| ${query} || '%');
-  `
+    WHERE LOWER(title) LIKE LOWER('%'|| ${query} || '%') 
+    AND "duration" IN (${Prisma.join(types)})
+  `)
+
   return jobs
 }

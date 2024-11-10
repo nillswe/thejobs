@@ -1,3 +1,5 @@
+'use client'
+
 import Form from 'next/form'
 
 import { DollarSign, Globe, Home, Layers, Search, Trophy } from 'lucide-react'
@@ -29,7 +31,7 @@ export const SearchCard = () => {
         <div className='flex flex-1 gap-2'>
           <FilterCheckbox
             label='Job Type'
-            name='job-title'
+            name='type'
             Icon={Layers}
             options={[
               { label: 'Full-time', value: 'full-time' },

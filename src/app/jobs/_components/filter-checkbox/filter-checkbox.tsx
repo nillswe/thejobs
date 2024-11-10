@@ -1,4 +1,8 @@
-import { ForwardRefExoticComponent } from 'react'
+'use client'
+
+import { ChangeEvent, ForwardRefExoticComponent } from 'react'
+
+import { useSearchParams, useRouter, usePathname } from 'next/navigation'
 
 import { ChevronDown, LucideProps } from 'lucide-react'
 
@@ -13,6 +17,22 @@ type Props = {
 }
 
 export const FilterCheckbox = ({ label, name, Icon, options }: Props) => {
+  const searchParams = useSearchParams()
+  const pathname = usePathname()
+  const router = useRouter()
+
+  const handleAddFilter = (event: ChangeEvent<HTMLInputElement>) => {
+    const params = new URLSearchParams(searchParams)
+
+    if (event.target.checked) {
+      params.append(event.target.name, event.target.value)
+    } else {
+      params.delete(event.target.name, event.target.value)
+    }
+
+    router.replace(`${pathname}?${params.toString()}`)
+  }
+
   return (
     <div className='dropdown'>
       <div
@@ -29,7 +49,13 @@ export const FilterCheckbox = ({ label, name, Icon, options }: Props) => {
         {options.map(option => (
           <li key={option.value}>
             <label className='cursor-pointer'>
-              <input name={name} type='checkbox' value={option.value} className={`checkbox`} />
+              <input
+                name={name}
+                type='checkbox'
+                value={option.value}
+                className={`checkbox`}
+                onChange={event => handleAddFilter(event)}
+              />
               <span>{option.label}</span>
             </label>
           </li>
