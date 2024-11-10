@@ -1,7 +1,5 @@
 export * from './hero'
-export * from './icons'
 export * from './theme-toggle'
 export * from './providers'
 export * from './trusted'
-export * from './container'
 export * from './jobs-list'

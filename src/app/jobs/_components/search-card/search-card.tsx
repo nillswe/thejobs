@@ -1,3 +1,5 @@
+import Form from 'next/form'
+
 import { DollarSign, Globe, Home, Layers, Search, Trophy } from 'lucide-react'
 
 import { FilterCheckbox } from '../filter-checkbox'
@@ -10,12 +12,12 @@ export const SearchCard = () => {
         hover:shadow-md hover:cursor-pointer
       `}>
       <div className='flex flex-col rounded-2xl p-4 bg-blue-100/20 gap-3'>
-        <div className='flex flex-1'>
+        <Form action='/jobs' className='flex flex-1'>
           <label
             className={`
               input input-bordered items-center flex-1 flex rounded-full pr-2 gap-2 bg-base-200
             `}>
-            <input type='search' className='grow' placeholder='Search by job title' />
+            <input name='query' type='search' className='grow' placeholder='Search by job title' />
             <div
               className={`
                 bg-primary rounded-full flex justify-center items-center p-2 text-base-200
@@ -23,7 +25,7 @@ export const SearchCard = () => {
               <Search size={18} />
             </div>
           </label>
-        </div>
+        </Form>
         <div className='flex flex-1 gap-2'>
           <FilterCheckbox
             label='Job Type'

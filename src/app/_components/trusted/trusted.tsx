@@ -1,6 +1,6 @@
 import Image from 'next/image'
 
-import { Container } from '@/app/_components'
+import { Container } from '@/app/_components/shared'
 
 export const Trusted = () => {
   return (

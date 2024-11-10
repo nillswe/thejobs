@@ -1,3 +1,5 @@
+import Form from 'next/form'
+
 import { DM_Sans } from 'next/font/google'
 
 import { merge } from '@/utils'
@@ -22,15 +24,16 @@ export const Hero = () => {
           </p>
         </header>
 
-        <footer className='join max-w-full w-[40rem]'>
+        <Form action='/jobs' className='join max-w-full w-[40rem]'>
           <input
+            name='query'
             placeholder='React developer'
             className='input input-lg input-bordered join-item  rounded-2xl flex-1'
           />
-          <button className='btn btn-lg join-item btn-primary rounded-2xl'>
+          <button type='submit' className='btn btn-lg join-item btn-primary rounded-2xl'>
             Find your dream job
           </button>
-        </footer>
+        </Form>
       </div>
     </section>
   )

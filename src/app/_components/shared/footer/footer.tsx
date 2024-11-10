@@ -1,26 +1,28 @@
 import Link from 'next/link'
 import Image from 'next/image'
 
-import { Container, InstagramIcon, XIcon } from '@/app/_components'
+import { InstagramIcon, XIcon } from '@/app/_components/icons'
+
+import { Container } from '../container'
 
 export const Footer = () => {
   return (
-    <footer className='flex flex-col '>
+    <footer className='flex flex-col pt-10 '>
       <Container>
-        <div className='flex w-full items-center justify-center '>
-          <div className='flex-1'>
+        <div className='flex w-full items-center justify-center gap-5 '>
+          <div className='flex flex-col gap-5 justify-center items-start'>
+            <h1 className='text-4xl font-bold'>Live anywhere, work everywhere.</h1>
+            <Link href='/jobs' className='btn btn-primary rounded-full btn-lg btn-wide max-w-full'>
+              Find your dream job
+            </Link>
+          </div>
+          <div className='flex-1 opacity-70'>
             <Image
               width={620}
               height={435}
               alt='Illustration'
               src='/assets/illustration-footer.svg'
             />
-          </div>
-          <div className='flex flex-col gap-5 justify-center items-start'>
-            <h1 className='text-4xl font-bold'>Live anywhere, work everywhere.</h1>
-            <Link href='/jobs' className='btn btn-primary btn-lg btn-wide max-w-full'>
-              Find your dream job
-            </Link>
           </div>
         </div>
       </Container>

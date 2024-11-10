@@ -1,5 +1,6 @@
+import { Container } from '@/app/_components/shared'
+import { Hero, JobsList, Trusted } from '@/app/_components'
 import { getLastJobs } from '@/server/functions/jobs.function'
-import { Container, Hero, JobsList, Trusted } from '@/app/_components'
 
 export default async function Home() {
   const lastJobs = await getLastJobs()
