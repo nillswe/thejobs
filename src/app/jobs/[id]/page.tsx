@@ -7,9 +7,9 @@ import { getJobDetail } from '@/server/functions/jobs.function'
 import { acceptedCountry, duration, workplace } from '@/constants/filters'
 
 type Props = {
-  params: {
+  params: Promise<{
     id: string
-  }
+  }>
 }
 
 export default async function Layout({ params }: Props) {
