@@ -27,8 +27,6 @@ export const FilterRange = ({ label, name, Icon }: Props) => {
     router.replace(`${pathname}?${params.toString()}`, { scroll: false })
   }
 
-  console.log({ activeFilters })
-
   return (
     <div className='dropdown'>
       <div
@@ -54,7 +52,7 @@ export const FilterRange = ({ label, name, Icon }: Props) => {
             name={name}
             min={40}
             max={120}
-            defaultValue={40}
+            defaultValue={activeFilters.length > 0 ? activeFilters : 40}
             className='range range-sm'
             step='20'
             onChange={handleAddFilter}
