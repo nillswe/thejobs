@@ -5,7 +5,7 @@ export interface JobModel {
   title: string
   company: string
   description: string
-  duration: 'full_time' | 'part_time' | 'contract'
+  duration: 'full-time' | 'part-time' | 'contract'
   seniority: string
   workplace: 'hybrid' | 'on_site' | 'remote'
   salaryMin: Decimal

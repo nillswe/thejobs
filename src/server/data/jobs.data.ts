@@ -78,3 +78,27 @@ export const getJobsBySearchParams = async (params: JobsResultParams) => {
 
   return jobs
 }
+
+export const getJobById = async (id: number) => {
+  const job = await prisma.jobs.findUnique({
+    select: {
+      id: true,
+      acceptedCountry: true,
+      company: true,
+      createdAt: true,
+      description: true,
+      duration: true,
+      salaryMax: true,
+      salaryMin: true,
+      seniority: true,
+      title: true,
+      userId: true,
+      workplace: true,
+    },
+    where: {
+      id: id,
+    },
+  })
+
+  return job as JobModel
+}

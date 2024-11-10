@@ -28,9 +28,7 @@ export default async function Layout({ searchParams }: Props) {
             <option disabled value={0}>
               Sort by
             </option>
-            <option>Most recent</option>
-            <option>Pay (high to low)</option>
-            <option>Pay (low to high)</option>
+            <option>To be implemented</option>
           </select>
         </div>
 

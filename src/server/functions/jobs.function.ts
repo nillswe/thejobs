@@ -1,6 +1,8 @@
 'use server'
 
-import { getJobsBySearchParams, getRecentJobs } from '@/server/data/jobs.data'
+import { redirect } from 'next/navigation'
+
+import { getJobById, getJobsBySearchParams, getRecentJobs } from '@/server/data/jobs.data'
 
 type JobsResultParams = Record<string, string | string[]> | undefined
 
@@ -12,4 +14,12 @@ export const getJobsResult = async (params: JobsResultParams) => {
   if (!params || Object.keys(params).length === 0) return await getRecentJobs()
 
   return await getJobsBySearchParams(params)
+}
+
+export const getJobDetail = async (jobId: number) => {
+  const job = await getJobById(jobId)
+
+  if (!job) return redirect('/not-found')
+
+  return job
 }

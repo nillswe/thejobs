@@ -1,7 +1,7 @@
 export const duration = {
-  full_time: 'Full time',
-  part_time: 'Part time',
-  contract: 'Contract',
+  'full-time': 'Full time',
+  'part-time': 'Part time',
+  'contract': 'Contract',
 }
 
 export const seniority = {
