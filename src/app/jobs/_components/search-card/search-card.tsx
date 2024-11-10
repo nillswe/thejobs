@@ -1,12 +1,16 @@
 'use client'
 
 import Form from 'next/form'
+import { useSearchParams } from 'next/navigation'
 
 import { DollarSign, Globe, Home, Layers, Search, Trophy } from 'lucide-react'
 
 import { FilterCheckbox } from '../filter-checkbox'
 
 export const SearchCard = () => {
+  const searchParams = useSearchParams()
+  const query = searchParams.get('query')
+
   return (
     <div
       className={`
@@ -19,13 +23,16 @@ export const SearchCard = () => {
             className={`
               input input-bordered items-center flex-1 flex rounded-full pr-2 gap-2 bg-base-200
             `}>
-            <input name='query' type='search' className='grow' placeholder='Search by job title' />
-            <div
-              className={`
-                bg-primary rounded-full flex justify-center items-center p-2 text-base-200
-              `}>
+            <input
+              name='query'
+              type='search'
+              className='grow'
+              placeholder='Search by job title'
+              defaultValue={query ?? ''}
+            />
+            <button type='submit' className={`btn btn-circle btn-sm btn-primary`}>
               <Search size={18} />
-            </div>
+            </button>
           </label>
         </Form>
         <div className='flex flex-1 gap-2 flex-wrap'>
