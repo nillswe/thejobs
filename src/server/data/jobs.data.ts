@@ -62,7 +62,7 @@ export const getJobsBySearchParams = async (params: JobsResultParams | undefined
     : Prisma.empty
 
   const salaryQuery = salary
-    ? Prisma.sql` AND "salaryMin" >= ${salary} OR "salaryMax" >= ${salary} `
+    ? Prisma.sql` AND ("salaryMin" >= ${salary} OR "salaryMax" >= ${salary})`
     : Prisma.empty
 
   const jobs = await prisma.$queryRaw<JobModel[]>`
