@@ -11,7 +11,5 @@ export const getLastJobs = async () => {
 export const getJobsResult = async (params: JobsResultParams) => {
   if (!params || Object.keys(params).length === 0) return await getRecentJobs()
 
-  if (params?.query) return await getJobsBySearchParams(params)
-
-  return []
+  return await getJobsBySearchParams(params)
 }

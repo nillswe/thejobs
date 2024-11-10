@@ -34,12 +34,16 @@ export const getRecentJobs = async () => {
 type JobsResultParams = Record<string, string | string[]>
 
 export const getJobsBySearchParams = async (params: JobsResultParams) => {
-  const query = params.query
+  const title = params.query
   const jobType = parseToArray(params.type)
   const seniority = parseToArray(params.seniority)
   const country = parseToArray(params.country)
   const workplace = parseToArray(params.workplace)
   const salary = params.salary ? Number(params.salary) * 1000 : null
+
+  const titleQuery = title
+    ? Prisma.sql` WHERE LOWER(title) LIKE LOWER('%'|| ${title} || '%') `
+    : Prisma.sql` WHERE title IS NOT NULL`
 
   const jobTypeQuery = jobType
     ? Prisma.sql` AND "duration" IN (${Prisma.join(jobType)})`
@@ -64,7 +68,7 @@ export const getJobsBySearchParams = async (params: JobsResultParams) => {
   const jobs = await prisma.$queryRaw<JobModel[]>`
     SELECT id, title, company, description, duration, seniority, workplace, "salaryMin", "salaryMax", "acceptedCountry", "createdAt"
     FROM jobs
-    WHERE LOWER(title) LIKE LOWER('%'|| ${query} || '%') 
+    ${titleQuery}
     ${jobTypeQuery}
     ${seniorityQuery}
     ${countryQuery}
