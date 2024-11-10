@@ -11,8 +11,6 @@ export const getLastJobs = async () => {
 }
 
 export const getJobsResult = async (params: JobsResultParams) => {
-  if (!params || Object.keys(params).length === 0) return await getRecentJobs()
-
   return await getJobsBySearchParams(params)
 }
 

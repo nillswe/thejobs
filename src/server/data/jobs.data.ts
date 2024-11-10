@@ -33,13 +33,13 @@ export const getRecentJobs = async () => {
 
 type JobsResultParams = Record<string, string | string[]>
 
-export const getJobsBySearchParams = async (params: JobsResultParams) => {
-  const title = params.query
-  const jobType = parseToArray(params.type)
-  const seniority = parseToArray(params.seniority)
-  const country = parseToArray(params.country)
-  const workplace = parseToArray(params.workplace)
-  const salary = params.salary ? Number(params.salary) * 1000 : null
+export const getJobsBySearchParams = async (params: JobsResultParams | undefined) => {
+  const title = params?.query
+  const jobType = parseToArray(params?.type)
+  const seniority = parseToArray(params?.seniority)
+  const country = parseToArray(params?.country)
+  const workplace = parseToArray(params?.workplace)
+  const salary = params?.salary ? Number(params?.salary) * 1000 : null
 
   const titleQuery = title
     ? Prisma.sql` WHERE LOWER(title) LIKE LOWER('%'|| ${title} || '%') `
